@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/icons8-hulk-50.png">
+    <link href="css/addstyle.css" rel="stylesheet" type="text/css">
+    <title>Add New Hero</title>
+
+</head>
+<body>
+    <a href="/">
+    <h1>
+        Super-Hero registry
+    </h1>
+    </a>
+
+    <form method="post" action="/addhero">
+        <table>
+                <tr>
+                    <td>
+                        <fieldset>
+                            <legend>General Info</legend>
+                            <label>Name</label>  <input type="text" name="name" id="name">
+                            <label>Gender</label><input type="text" name="gender" id="gender">
+							<label>Race</label><input type="text" name="race" id="race">
+							<label>Alter Egos</label><input type="text" name="alterEgos" id="alterEgos" placeholder="Supes, Man of Steel    ">
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <fieldset>
+                        <legend>Power Stats</legend>
+							<label>Intelligence</label><input type="number" name="intelligence" id="intelligence">
+                        <br>
+							<label>Strength</label><input type="number" name="strength" id="strength">
+                        <br>
+							<label>Speed</label><input type="number" name="speed" id="speed">
+                        <br>
+							<label>Durability</label><input type="number" name="durability" id="durability">
+                        <br>
+							<label>Power</label><input type="number" name="power" id="power">
+                        <br>
+							<label>Combat</label><input type="number" name="combat" id="combat">
+                        </fieldset>
+                        <fieldset>
+                            <legend>Background Info</legend>
+							<label>Place of Birth</label><input type="text" name="placeOfBirth" id="placeOfBirth">
+                            <br>
+							<label>Occupation</label><input type="text" name="occupation" id="occupation">
+                            <br>
+							<label>Relatives</label><input type="text" name="relatives" id="relatives">
+                            <br>
+							<label>Image URL</label><input type="text" name="image" id="image">
+                            <br>
+                            <label>Interesting Fact</label>
+                            
+                            <br>
+                             <textarea name="info" rows="5" cols="60"></textarea>
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <fieldset>
+                            <legend>Submission</legend>
+                            <input type="submit" value="Submit">
+                            <input type="reset"  value="Clear">
+                        </fieldset>
+                    </td>
+                </tr>
+        </table>
+       
+        
+    </form>
+</body>
+</html>

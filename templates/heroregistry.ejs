@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero registry</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/icons8-hulk-50.png">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+       
+    <a href="/">
+        <h1>
+            Super-Hero registry
+        </h1>
+    </a>
+    <a href="/addhero">
+        <div id="add">
+            Add +
+        </div>
+    </a>
+
+    <form id="search" method="post" action="/">
+        Search
+        <input type="text" id="searchBox" name="name">
+    </form>
+
+    <div id="heroesTable"></div>
+
+    <script>
+        var heroes = <%-JSON.stringify(heroes)%>;
+        var dbHeroes = <%-JSON.stringify(DBHeroes)%>;
+        var APIHeroesCards = "";
+        var dbHeroesCards = "";
+        var content = "";
+        var heroFoundAPI = typeof heroes[0] != "string";
+        var currURL = window.location.href;
+        var page = document.querySelector('#heroesTable');
+        console.log(heroes);
+        dbHeroes.forEach(element => {
+            var url = new URL(currURL+'herodetail');
+            url.searchParams.append('hero', btoa(JSON.stringify(element)));
+            url.searchParams.append('isDB', true);
+            var res = `<a href=${url.href}> ${createHeroCardDB(element)} </a>`;
+            dbHeroesCards += res;
+        });
+        if(heroFoundAPI){
+            heroes.forEach(element => {
+                var url = new URL(currURL+'herodetail');
+                url.searchParams.append('hero',  btoa(JSON.stringify(element)));
+                url.searchParams.append('isDB', false);
+                var res = `<a href=${url.href}> ${createHeroCard(element)} </a>`;
+                APIHeroesCards += res;
+            });
+        }
+
+        if(dbHeroes.length > 0){
+            content += "<fieldset><legend>Fan Made</legend>"
+            content += dbHeroesCards;
+            content += "</fieldset><br>"
+        }
+        if(heroFoundAPI){
+            content += "<fieldset><legend>Premade</legend>"
+            content += APIHeroesCards;
+            content += "</fieldset>"
+        }
+        if(dbHeroes.length == 0 && !heroFoundAPI){
+            content = "<h2>¯\\_(ツ)_/¯</h2>";
+        }
+        page.innerHTML = content;
+        function createHeroCard(hero){
+            var stats = hero.powerstats;
+            var res = `<table>
+                <tr>
+                <td colspan=5 rowspan=8> 
+                <img id="image" src="${hero.images.lg}">
+                </td>
+                <td id="name">${hero.name}</td>
+                <tr>
+                <td class="stats" id="header"><b>Stats</b></td>
+
+                <tr>
+                    <td class="stats">Intelligence: ${stats.intelligence}</td>
+                </tr>
+                <tr>
+                    <td class="stats">Strength: ${stats.strength}</td>
+                </tr>
+                <tr>
+                    <td class="stats">Speed: ${stats.speed}</td>
+                </tr>
+                <tr>
+                    <td class="stats">Durability: ${stats.durability}</td>
+                </tr>
+                <tr>
+                    <td class="stats">Power: ${stats.power}</td>
+                </tr>
+                <tr>
+                    <td class="stats">Combat: ${stats.combat}</td>
+                </tr>
+                
+            </table>`;
+            return res;
+        }
+        function createHeroCardDB(hero){
+            console.log(hero);
+            var res = `<table>
+                <tr>
+                <td colspan=5 rowspan=8> 
+                <img id="image" src="${hero.image}">
+                </td>
+                <td id="name">${hero.name}</td>
+                <tr>
+                <td class="stats" id="header"><b>Stats</b></td>
+
+                <tr>
+                    <td class="stats">Intelligence: ${hero.intelligence}</td>
+                </tr>
+                <tr>
+                    <td class="stats">Strength: ${hero.strength}</td>
+                </tr>
+                <tr>
+                    <td class="stats">Speed: ${hero.speed}</td>
+                </tr>
+                <tr>
+                    <td class="stats">Durability: ${hero.durability}</td>
+                </tr>
+                <tr>
+                    <td class="stats">Power: ${hero.power}</td>
+                </tr>
+                <tr>
+                    <td class="stats">Combat: ${hero.combat}</td>
+                </tr>
+                
+            </table>`;
+            return res;
+        }
+        function setDB(){
+            page = dbHeroescards;
+        }
+        function setAPI(){
+            page = APIHeroesCards;
+        }
+        function setBoth(){
+            page = content;
+        }
+    </script>
+</body>
+</html>

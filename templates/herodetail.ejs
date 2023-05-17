@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/icons8-hulk-50.png">
+    <link href="css/detailstyle.css" rel="stylesheet" type="text/css">
+    <title>Hero Details</title>
+    </head>
+    <body>
+        <a href="/">
+            <h1>
+                Super-Hero registry
+            </h1>
+        </a>
+        <div id="heroTable"></div>
+        <script>
+            var content = "";
+            var hero = <%-JSON.parse(JSON.stringify(atob(hero)))%>;
+            var isDB = <%-JSON.stringify(isDB)%>;
+            document.title = hero.name;
+            if(isDB =='true'){
+                content = createHeroCardDB(hero);
+            }else{
+                content = createHeroCard(hero);
+            }
+
+            document.querySelector("#heroTable").innerHTML = content;
+
+            function createHeroCardDB(hero){
+                var res = `
+                    <table class="outer">
+                        <tbody>
+                            <tr>
+                                <td class="outer" >
+                                    <table >
+                                        <tr>
+                                            <td > 
+                                                <img id="image" src="${hero.image}">
+                                            </td>
+                                        <tr>
+                                            <td id="name">${hero.name}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="stats" id="header"><b>Stats</b></td>
+                                        <tr>
+                                            <td class="stats">Intelligence: ${hero.intelligence}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="stats">Strength: ${hero.strength}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="stats">Speed: ${hero.speed}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="stats">Durability: ${hero.durability}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="stats">Power: ${hero.power}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="stats">Combat: ${hero.combat}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="outer">
+                                    <table class="outer">
+                                        <tr>
+                                            <td class="outer">
+                                                <table>
+                                                    <tr>
+                                                    <td  class="stats" id="tableheader" colspan=8> General Info</td>     
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="stats">Gender: ${hero.gender}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="stats">Race: ${hero.race}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="stats">Alter Egos: ${hero.alterEgos}</td>
+                                                    </tr>
+                                                </table>    
+                                            </td>
+                                        <tr>
+                                            <td class="outer">
+                                                <table>
+                                                    <tr>
+                                                    <td  class="stats" id="tableheader" colspan=8> Background</td>     
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="stats">Place of Birth: ${hero.placeOfBirth}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="stats">Occupation: ${hero.occupation}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="stats">Relatives: ${hero.relatives}</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="outer">
+                                                <table>
+                                                    <tr>
+                                                        <td id="tableheader" colspan=8> Did You Know? </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="stats">${hero.info}</td>    
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                    </table>
+                               </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    `
+                    
+                    ;
+                    return res;
+                }
+            function createHeroCard(hero){
+                console.log(hero);
+                var stats = hero.powerstats;
+                var res =`<table class="outer">
+                        <tbody>
+                            <tr>
+                                <td class="outer" >
+                            <table >
+                            <tr>
+                                <td> 
+                                    <img id="image"  src="${hero.images.lg}">
+                                </td>
+                                <tr>
+                                <td id="name" >${hero.name}</td>
+                                </tr>
+                                <tr>
+                                <td class="stats" id="header"><b>Stats</b></td>
+
+                                <tr >
+                                    <td  class="stats">Intelligence: ${stats.intelligence}</td>
+                                </tr>
+                                <tr >
+                                    <td class="stats">Strength: ${stats.strength}</td>
+                                </tr>
+                                <tr >
+                                    <td class="stats">Speed: ${stats.speed}</td>
+                                </tr>
+                                <tr >
+                                    <td class="stats">Durability: ${stats.durability}</td>
+                                </tr>
+                                <tr >
+                                    <td class="stats">Power: ${stats.power}</td>
+                                </tr>
+                                <tr >
+                                    <td class="stats">Combat: ${stats.combat}</td>
+                                </tr>
+                                    
+                                </table>
+                                </td>
+                                <td class="outer">
+                                    <table class="outer">
+                                        <tr>
+                                            <td class="outer">
+                                                <table>
+                                                    <tr>
+                                                    <td  class="stats" id="tableheader" colspan=8> General Info</td>     
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="stats">Full Name: ${hero.biography.fullName}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="stats">Gender: ${hero.appearance.gender}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="stats">Race: ${hero.appearance.race}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="stats">Alter Egos: ${hero.biography.alterEgos}</td>
+                                                    </tr>
+                                                </table>    
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="outer">
+                                                <table>
+                                                    <tr>
+                                                    <td  class="stats" id="tableheader" colspan=8> Background</td>     
+                                                    </tr>
+                                                    <tr>
+                                                        <td id="bg" class="stats">Place of Birth: ${hero.biography.placeOfBirth}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td id="bg" class="stats">Occupation: ${hero.work.occupation}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td id="bg" class="stats">Relatives: ${hero.connections.relatives}</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            
+                                        </tr>
+                                            
+                                    </table>
+                               </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    `
+                    return res;
+                }
+        </script>
+    </body>
+</html>

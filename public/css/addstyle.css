@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+html{
+    font-family: 'Bangers', cursive;
+}
+h1{
+    background-image: url('https://t3.ftcdn.net/jpg/02/50/39/02/360_F_250390293_iYJZ3rVfALS1XnSvAjMUz3ffAZDShr3F.jpg');
+    margin-left: .1rem;
+    display: inline;
+    padding-right: 1rem;
+    font-size: 5rem;
+    border: black;
+    border-style: groove;
+    box-shadow: -.2rem -.2rem 0rem black;
+    -webkit-text-stroke-width: 1.8px;
+    -webkit-text-stroke-color: black;
+    color: azure;
+}
+
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+
+fieldset {
+    display: inline;
+    width: fit-content;
+    margin-top: 2rem;
+    vertical-align: top;
+}
+
+table{
+    margin-top: 1rem;
+    background-color:rgb(255, 245, 238);
+}
+
+table:hover{
+    box-shadow: 5px 5px 1px black;
+}
+table {
+    border:black;
+    transition: box-shadow .3s ease-in-out;
+	border-style: solid;
+}
+
+legend{
+    font-size: 2rem;
+    color:firebrick;
+}
+label{
+    font-size: 1.5rem;
+    margin-right: .5rem;
+
+}
+
+input{
+    position: relative;
+    margin-bottom: .7rem;
+    margin-right: .8rem;
+    vertical-align:.2rem;
+    width: 12rem;
+    height: 2rem;
+}
+
+input[name="name"],input[name="gender"], input[name="race"], input[name="alterEgos"] {
+    height: 1rem;
+    width: 6rem;
+}
+
+input[name="alterEgos"]{
+    width: 8rem;
+}
+
+input[type='number']{
+    width:2rem;
+    height: 1rem;
+}
+
+input[type='submit'], input[type='reset']{
+    font-family: 'Bangers', cursive;
+    font-size: 1.5rem;
+    margin-right: 0;
+    width: 6rem;
+}
+
+input[type='submit']{
+    color:darkgreen;
+}
+
+input[type='reset']{
+    color:darkred;
+}

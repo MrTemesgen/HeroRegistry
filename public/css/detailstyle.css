@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+html{
+    font-family: 'Bangers', cursive;
+    font-size: larger;
+}
+h1{
+    background-image: url('https://t3.ftcdn.net/jpg/02/50/39/02/360_F_250390293_iYJZ3rVfALS1XnSvAjMUz3ffAZDShr3F.jpg');
+    margin-left: .1rem;
+    display: inline;
+    padding-right: 1rem;
+    font-size: 4.15rem;
+    border: black;
+    border-style: groove;
+    box-shadow: -.2rem -.2rem 0rem black;
+    -webkit-text-stroke-width: 1.8px;
+    -webkit-text-stroke-color: black;
+    color: azure;
+}
+
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+
+fieldset {
+    display: inline;
+    width: fit-content;
+    margin-top: 2rem;
+    vertical-align: top;
+}
+
+#header, #name {
+    text-align:center;
+    border:none;
+    padding-top:.5rem;
+}
+#name, #tableheader{
+    text-align: center;
+    font-size:3rem;
+    -webkit-text-stroke-width: 1.8px;
+    -webkit-text-stroke-color: black;
+    color: white;
+    border: none;
+}
+table:hover{
+    box-shadow: 5px 5px 1px black;
+}
+table, td, tr {
+    border:black;
+    transition: box-shadow .3s ease-in-out;
+	border-style: solid;
+}
+table{
+    width: fit-content;
+
+    background-color:rgb(255, 245, 238);
+    background-repeat: no-repeat;
+    display:inline-table;
+    margin:.5rem;
+    margin-left: 0;
+    float: left;
+}
+
+img{
+    display: block;
+    width: 11.5rem;
+    height: 19rem;
+    object-fit: cover;
+}
+
+
+.stats{
+    font-size:1.5rem;
+    text-align:left;
+    padding-top:0rem;
+    border-width:.01rem;
+    vertical-align: middle;
+}
+.stats:hover{
+    box-shadow: 1px 1px 1px black;
+}
+
+legend{
+    font-size: 2rem;
+    color:firebrick;
+}
+label{
+    font-size: 1.5rem;
+    margin-right: .5rem;
+
+}
+.outer{
+    all:unset;
+    margin: 0 auto;
+    box-shadow: none;
+}
+
+table.outer{
+    box-shadow: none;
+}
+
+td#bg{
+    width: 24rem;
+}
+
+td#profile{
+    display: block;
+}
+
+#name{
+    word-wrap: break-word;
+    max-width: 1rem;
+}
