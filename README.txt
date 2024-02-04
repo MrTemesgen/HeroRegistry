@@ -4,4 +4,4 @@ It uses a superhero api that gives us access to superhero's that already exist.
 The main page will allow you to look up heros from the api or those others have made.
 Another page will let you submit your own creation to the global listing.
 APIs: https://rapidapi.com/jakash1997/api/superhero-search/
-Live Link: https://heroregistry.herokuapp.com/
+Link (Dyno might not be active...): https://heroregistry.herokuapp.com/
