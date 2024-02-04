@@ -5,3 +5,4 @@ The main page will allow you to look up heros from the api or those others have 
 Another page will let you submit your own creation to the global listing.
 APIs: https://rapidapi.com/jakash1997/api/superhero-search/
 Link (Dyno might not be active...): https://heroregistry.herokuapp.com/
+Also on: https://fair-cyan-sea-urchin-vest.cyclic.app/
